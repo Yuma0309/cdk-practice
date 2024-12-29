@@ -1,0 +1,26 @@
+services:
+  deploy_to_s3:
+    # Docker イメージのビルド設定
+    build:
+      # ビルドコンテキストを親ディレクトリに設定
+      context: ..
+      # 使用する Dockerfile のパスを指定
+      dockerfile: docker/Dockerfile
+
+    # 環境変数の設定
+    environment:
+      # # 使用する AWS プロファイルを指定
+      # - AWS_PROFILE=${AWS_PROFILE}
+      # AWSアクセスキーとシークレットキーを指定
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+
+    # # ボリュームマウントの設定
+    # volumes:
+    #   # ホストの AWS 設定ファイルをコンテナ内に読み取り専用でマウント
+    #   - ~/.aws/config:/root/.aws/config:ro
+    #   # ホストの AWS 認証情報ファイルをコンテナ内に読み取り専用でマウント
+    #   - ~/.aws/credentials:/root/.aws/credentials:ro
+    #   # ホストの AWS SSO キャッシュディレクトリをコンテナ内に読み取り専用でマウント
+    #   - ~/.aws/sso/cache:/root/.aws/sso/cache:ro
