@@ -23,7 +23,6 @@ jobs:
           aws-region: us-east-1
 
       - name: Deploy cdk
-        if: steps.directory_check.outputs.target_directories != ''
         run: |
           cd cdk-container-practice
           cdk bootstrap
