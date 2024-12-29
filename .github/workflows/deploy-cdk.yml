@@ -1,0 +1,30 @@
+name: deploy cdk
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write # This is required for requesting the JWT (id token)
+  contents: read # This is required for actions/checkout
+
+jobs:
+  deploy-cdk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch token
+        uses: aws-actions/configure-aws-credentials@v4 # OIDC（IDトークン）を使用してAWS認証を行い、一時的な認証情報を取得
+        with:
+          # GitHub Actionsが引き受けるAWS IAMロールのARNを指定
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsOIDC@cdk-practice
+          aws-region: us-east-1
+
+      - name: Deploy cdk
+        if: steps.directory_check.outputs.target_directories != ''
+        run: |
+          cd cdk-container-practice
+          cdk bootstrap
+          cdk deploy
