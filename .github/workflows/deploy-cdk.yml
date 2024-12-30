@@ -35,6 +35,16 @@ jobs:
           cd cdk-container-test
           npm install
 
+      - name: Diff cdk
+        run: |
+          cd cdk-container-test
+          cdk diff
+
+      - name: Bootstrap cdk
+        run: |
+          cd cdk-container-test
+          cdk bootstrap
+
       - name: Deploy cdk
         run: |
           cd cdk-container-test
