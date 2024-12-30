@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Install CDK
+        run: npm install -g aws-cdk
+
       - name: Fetch token
         uses: aws-actions/configure-aws-credentials@v4 # OIDC（IDトークン）を使用してAWS認証を行い、一時的な認証情報を取得
         with:
