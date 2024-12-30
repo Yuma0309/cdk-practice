@@ -15,6 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
       - name: Fetch token
         uses: aws-actions/configure-aws-credentials@v4 # OIDC（IDトークン）を使用してAWS認証を行い、一時的な認証情報を取得
         with:
