@@ -20,7 +20,7 @@ jobs:
         with:
           # GitHub Actionsが引き受けるAWS IAMロールのARNを指定
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsOIDC@cdk-practice
-          aws-region: us-east-1
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy cdk
         run: |
