@@ -39,4 +39,4 @@ jobs:
         run: |
           cd cdk-container-test
           cdk bootstrap
-          cdk deploy
+          cdk deploy --require-approval never
