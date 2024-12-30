@@ -32,8 +32,9 @@ export class CdkContainerTestStack extends cdk.Stack {
     });
 
     // CloudFrontのURLを出力
+    const encodedFileName = encodeURIComponent('虹色孔雀.jpg');
     new cdk.CfnOutput(this, 'DistributionDomainName', {
-      value: `https://${distribution.domainName}/虹色孔雀.jpg`,
+      value: `https://${distribution.domainName}/${encodedFileName}`,
     });
   }
 }
