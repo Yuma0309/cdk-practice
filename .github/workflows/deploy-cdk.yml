@@ -30,8 +30,12 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsOIDC@cdk-practice
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Deploy cdk
+      - name: Install dependencies
         run: |
           cd cdk-container-test
+          npm install
+
+      - name: Deploy cdk
+        run: |
           cdk bootstrap
           cdk deploy
