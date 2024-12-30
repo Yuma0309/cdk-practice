@@ -25,7 +25,7 @@ export class CdkContainerTestStack extends cdk.Stack {
 
     // S3バケットに画像をデプロイ
     new s3deploy.BucketDeployment(this, 'DeployImage', {
-      sources: [s3deploy.Source.asset('/虹色孔雀.jpg')],
+      sources: [s3deploy.Source.asset('../虹色孔雀.jpg')],
       destinationBucket: myBucket,
       distribution,
       distributionPaths: ["/*"],
