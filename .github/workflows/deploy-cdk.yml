@@ -24,6 +24,6 @@ jobs:
 
       - name: Deploy cdk
         run: |
-          cd cdk-container-practice
+          cd cdk-container-test
           cdk bootstrap
           cdk deploy
