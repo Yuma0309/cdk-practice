@@ -33,7 +33,7 @@ export class CdkContainerTestStack extends cdk.Stack {
 
     // CloudFrontのURLを出力
     new cdk.CfnOutput(this, 'DistributionDomainName', {
-      value: distribution.domainName,
+      value: `https://${distribution.domainName}/虹色孔雀.jpg`,
     });
   }
 }
