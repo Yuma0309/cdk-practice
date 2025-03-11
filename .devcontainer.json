@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Select Development Environment",
+  "dockerComposeFile": [
+    "project-A/.devcontainer/docker-compose.yml",
+    "project-B/.devcontainer/docker-compose.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "remoteEnv": {
+    "SHELL": "/bin/zsh"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true
+    }
+  },
+  "forwardPorts": [],
+  "overrideFeatureInstallOrder": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ],
+  "initializeCommand": {
+    "pre": "echo 'Initializing development container...'"
+  },
+  "onCreateCommand": {
+    "pre": "echo 'Select your development environment:'"
+  },
+  "updateContentCommand": "",
+  "postCreateCommand": "",
+  "postStartCommand": "",
+  "postAttachCommand": "",
+  "waitFor": "onCreateCommand",
+  "shutdownAction": "stopContainer",
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+  "updateRemoteUserUID": true,
+  "extensions": [
+    "ms-vscode-remote.remote-containers"
+  ],
+  "userEnvProbe": "loginShell",
+  "codespaces": {
+    "defaultExtensions": [
+      "GitHub.copilot",
+      "GitHub.vscode-pull-request-github"
+    ],
+    "devcontainerConfig": {
+      "nodeProject": {
+        "path": "./project-A/.devcontainer",
+        "name": "Node.js Project (Project A)",
+        "description": "Node.js開発環境"
+      },
+      "pythonProject": {
+        "path": "./project-B/.devcontainer",
+        "name": "Python Project (Project B)",
+        "description": "Python開発環境"
+      }
+    }
+  }
+}

@@ -1,30 +1,30 @@
 {
-  "name": "Repository Configuration",
-  "configureRemoteEnv": {
-    "COMPOSE_PROJECT_NAME": "${localWorkspaceFolderBasename}"
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "remoteEnv": {
-    "GIT_EDITOR": "code --wait"
-  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
   "customizations": {
-    "codespaces": {
-      "repositories": {
-        "*": {
-          "devcontainer": {
-            "choices": [
-              {
-                "name": "Node.js Project (Project A)",
-                "path": "project-A/.devcontainer"
-              },
-              {
-                "name": "Python Project (Project B)",
-                "path": "project-B/.devcontainer"
-              }
-            ]
-          }
-        }
-      }
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-vscode-remote.remote-containers"
+      ]
     }
-  }
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "DEVCONTAINERS": "true"
+  },
+  "variants": [
+    {
+      "name": "Node.js Project",
+      "configFiles": ["project-A/.devcontainer/devcontainer.json"]
+    },
+    {
+      "name": "Python Project",
+      "configFiles": ["project-B/.devcontainer/devcontainer.json"]
+    }
+  ]
 }

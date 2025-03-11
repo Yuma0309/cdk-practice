@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".."
+    },
+    {
+      "name": "Node.js Project (Project A)",
+      "path": "../project-A"
+    },
+    {
+      "name": "Python Project (Project B)",
+      "path": "../project-B"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "project-A": true,
+      "project-B": true
+    }
+  },
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode-remote.remote-containers"
+    ]
+  }
+}
