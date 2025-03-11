@@ -1,21 +1,32 @@
 {
   "name": "Project Selection",
+  "hostRequirements": {
+      "cpus": 2,
+      "memory": "4gb",
+      "storage": "32gb"
+  },
+  "updateContentCommand": "echo 'Select a project to continue setup'",
   "customizations": {
-    "codespaces": {
-      "repositories": {
-        "*": {
-          "devcontainerFiles": [
-            {
-              "path": "project-A/.devcontainer/devcontainer.json",
-              "label": "Node.js Project"
-            },
-            {
-              "path": "project-B/.devcontainer/devcontainer.json",
-              "label": "Python Project"
-            }
-          ]
-        }
+      "codespaces": {
+          "repositories": {
+              "*": {
+                  "devcontainerFiles": [
+                      {
+                          "path": "project-A/.devcontainer/devcontainer.json",
+                          "label": "Node.js Project"
+                      },
+                      {
+                          "path": "project-B/.devcontainer/devcontainer.json",
+                          "label": "Python Project"
+                      }
+                  ]
+              }
+          },
+          "openFiles": ["README.md"]
       }
-    }
+  },
+  "remoteUser": "root",
+  "features": {
+      "ghcr.io/devcontainers/features/common-utils:2": {}
   }
 }
