@@ -13,11 +13,11 @@
                   "devcontainerFiles": [
                       {
                           "path": "project-A/.devcontainer/devcontainer.json",
-                          "label": "Node.js Project"
+                          "label": "Project A"
                       },
                       {
                           "path": "project-B/.devcontainer/devcontainer.json",
-                          "label": "Python Project"
+                          "label": "Project B"
                       }
                   ]
               }
