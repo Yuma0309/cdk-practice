@@ -1,0 +1,13 @@
+{
+  "name": "Node.js開発環境",
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:0-18",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker"
+  ],
+  "remoteUser": "node",
+  "postCreateCommand": "npm install"
+}
