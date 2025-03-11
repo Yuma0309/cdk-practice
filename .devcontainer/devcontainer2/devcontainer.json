@@ -1,14 +1,18 @@
 {
   "name": "Python開発環境",
   "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "python.defaultInterpreterPath": "/usr/local/bin/python"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
   },
-  "extensions": [
-    "ms-python.python",
-    "ms-python.vscode-pylance"
-  ],
   "remoteUser": "vscode",
   "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt || true"
 }
