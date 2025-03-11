@@ -1,21 +1,5 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "configureZshAsDefaultShell": true,
-      "installOhMyZsh": true
-    }
-  },
-  "hostRequirements": {
-    "cpus": 2,
-    "memory": "4gb",
-    "storage": "32gb"
-  },
-  "onCreateCommand": "echo 'Select your development environment'",
-  "updateContentCommand": "echo 'Updating content...'",
-  "postCreateCommand": "echo 'Setup complete'",
-  "remoteUser": "codespace",
+  "name": "Project Selection",
   "customizations": {
     "codespaces": {
       "repositories": {
@@ -23,11 +7,11 @@
           "devcontainerFiles": [
             {
               "path": "project-A/.devcontainer/devcontainer.json",
-              "label": "Node.js Development (Project A)"
+              "label": "Node.js Project"
             },
             {
               "path": "project-B/.devcontainer/devcontainer.json",
-              "label": "Python Development (Project B)"
+              "label": "Python Project"
             }
           ]
         }
