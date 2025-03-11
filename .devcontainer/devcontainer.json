@@ -1,0 +1,30 @@
+{
+  "name": "Repository Configuration",
+  "configureRemoteEnv": {
+    "COMPOSE_PROJECT_NAME": "${localWorkspaceFolderBasename}"
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteEnv": {
+    "GIT_EDITOR": "code --wait"
+  },
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "*": {
+          "devcontainer": {
+            "choices": [
+              {
+                "name": "Node.js Project (Project A)",
+                "path": "project-A/.devcontainer"
+              },
+              {
+                "name": "Python Project (Project B)",
+                "path": "project-B/.devcontainer"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
