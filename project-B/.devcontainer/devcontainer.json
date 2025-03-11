@@ -1,15 +1,13 @@
 {
-  "name": "Python Development",
-  "build": {
-    "dockerfile": "Dockerfile"
+  "name": "Project B Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-14",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python"
-      ]
-    }
-  },
-  "forwardPorts": [8000],
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "npm install",
   "remoteUser": "vscode"
 }

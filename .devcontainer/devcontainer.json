@@ -1,36 +1,35 @@
 {
-    "name": "Project Selection",
-    "hostRequirements": {
-        "cpus": 2,
-        "memory": "4gb",
-        "storage": "32gb"
-    },
-    "updateContentCommand": "echo 'Select a project to continue setup'",
-    "customizations": {
-        "vscode": {
-            "settings": {},
-            "extensions": []
-        },
-        "codespaces": {
-            "openFiles": ["README.md"]
+  "name": "CDK Practice Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-14",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "npm install",
+  "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.exclude": {
+          "**/project-A": false,
+          "**/project-B": false
         }
-    },
-    "remoteUser": "root",
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {}
-    },
-    "remoteEnv": {},
-    "forwardPorts": [],
-    "_devcontainer": {
-        "configFiles": [
-            {
-                "path": "project-A/.devcontainer/devcontainer.json",
-                "label": "Project A"
-            },
-            {
-                "path": "project-B/.devcontainer/devcontainer.json",
-                "label": "Project B"
-            }
-        ]
+      }
     }
+  },
+  "features": {
+    "project-A": {
+      "name": "Project A Dev Container",
+      "config": "./project-A/.devcontainer/devcontainer.json"
+    },
+    "project-B": {
+      "name": "Project B Dev Container",
+      "config": "./project-B/.devcontainer/devcontainer.json"
+    }
+  }
 }
